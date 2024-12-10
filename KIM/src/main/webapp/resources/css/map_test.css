@@ -1,6 +1,123 @@
-@charset "UTF-8";
+/* 전체 레이아웃 */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
 
+.main-container {
+  display: flex;
+  height: 100%;
+}
+
+/* 왼쪽 사이드바 스타일 */
+.sidebar {
+  width: 20%; /* 사이드바 비율 */
+  background-color: #f8f9fa;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-right: 1px solid #ddd;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.reset-button {
+  display: inline;
+  margin-left: 5px;
+  font-size: 14px;
+  color: #007bff;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.reset-button:hover {
+  text-decoration: underline;
+}
+
+/* 필터 섹션 스타일 */
+.filters label {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.filters select {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  margin-bottom: 20px;
+  appearance: none;
+  cursor: pointer;
+}
+
+.filters select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.view-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.view-button:hover {
+  background-color: #0056b3;
+}
+
+/* 모듈 행 스타일 */
+.module-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.module-row p {
+  margin: 0;
+  line-height: 1.5;
+  font-size: 18px;
+}
+
+/* 동적 사이드바 */
+#dynamic-sidebar {
+  width: 20%; /* 동적 사이드바 너비 */
+  background-color: #ffffff;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+
+/* 지도 영역 */
 #map {
-   width: 100%;
-   height: 60vh; /* 모바일에서 지도의 높이 설정 */
+  flex-grow: 1; /* 지도는 남은 공간을 차지 */
+  height: 100%;
+  background-color: #e9ecef;
 }
