@@ -41,7 +41,6 @@ function onSuccessGeolocation(position) {
     });
 
     console.log('현재 위치: ' + location.toString()); // 디버깅 로그
-    initMap(); // 위치를 잡은 후 마커 초기화
 }
 
 // 지도에 마커를 추가하는 함수
@@ -50,7 +49,7 @@ function initMap() {
 
     // AJAX 요청
     $.ajax({
-        url: 'http://localhost:8085/kim/map', // 서버 API URL
+        url: 'http://localhost:8085/kim/cd', // 서버 API URL
         method: 'GET',
         dataType: 'json',
         success: function (data) {
@@ -59,12 +58,17 @@ function initMap() {
                 let place = data[i];
 
                 let placeInfo = {
-                    location: place.place_name,
-                    category: place.category,
-                    address: place.place_addr,
-                    tel: place.place_tel,
-                    lat: place.place_lat.toString(),
-                    lng: place.place_lon.toString()
+                    region : place.region,
+                    stats_year : place.stats_year,
+                    quarter : place.quarter,
+                    service_category : place.service_category,
+                    cd_name : place.cd_name,
+                    survive : place.survive,
+                    region_lat : place.region_lat.toString(),
+                    region_lon : place.region_lon.toString(),
+                    cd_lat : place.cd_lat.toString(),
+                    cd_lon : place.cd_lon.toString()
+                            
                 };
                 areaArr.push(placeInfo);
             }
@@ -75,22 +79,22 @@ function initMap() {
             for (let i = 0; i < areaArr.length; i++) {
                 let marker = new naver.maps.Marker({
                     map: map,
-                    title: areaArr[i].location,
-                    position: new naver.maps.LatLng(areaArr[i].lat, areaArr[i].lng),
+                    title: areaArr[i].region,
+                    position: new naver.maps.LatLng(areaArr[i].cd_lat, areaArr[i].cd_lon),
                     icon: {
                         url: '/resources/images/test.png', // 이미지 경로 수정
                         scaledSize: new naver.maps.Size(30, 30),
                     }
                 });
 
-                let contentString = `
-                    <div style="width:400px;text-align:center;padding:10px;">
-                        <a href="#"><b>${areaArr[i].location}</b></a>
-                        <span style="font-size:12px">${areaArr[i].category}</span><br>
-                        📍 ${areaArr[i].address}<br>
-                        📞 ${areaArr[i].tel}<br>
-                    </div>
-                `;
+        //        let contentString = `
+          //          <div style="width:400px;text-align:center;padding:10px;">
+            //            <a href="#"><b>${areaArr[i].location}</b></a>
+              //          <span style="font-size:12px">${areaArr[i].category}</span><br>
+                //        📍 ${areaArr[i].address}<br>
+                  //      📞 ${areaArr[i].tel}<br>
+                 //   </div>
+               // `;
 
                 let infoWindow = new naver.maps.InfoWindow({
                     content: contentString,

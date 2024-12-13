@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.mapper.Rp2Mapper">
+   
+   <select id="tbl_rp_2_list" parameterType="long" resultType="com.smhrd.entity.tbl_rp_2">
+      select * from tbl_rp_2
+      where region_lat = #{region_lat} and region_lon = #{region_lon}
+   </select>
+   
+</mapper>

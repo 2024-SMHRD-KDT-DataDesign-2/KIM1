@@ -41,7 +41,7 @@
             <option value="주점">주점</option>
           </select>
         </div>
-        <button id="view-report" class="view-button" aria-label="보고서 보기">보고서 보기</button>
+        <button id="view-report" class="view-button" aria-label="보고서 보기" onclick="initmap()">보고서 보기</button>
       </div>
 
       <!-- 결과 상태 -->

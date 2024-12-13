@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.mapper.CdMapper">
+   
+   <select id="tbl_cd_list" parameterType="com.smhrd.entity.tbl_cd" resultType="com.smhrd.entity.tbl_cd">
+      select * from tbl_cd
+      where region = #{region} and service_category = #{service_category}
+   </select>
+   
+</mapper>
